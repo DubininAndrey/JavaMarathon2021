@@ -31,8 +31,7 @@ public class Task1 {
             }
             if (array[i] % 2 == 0) {
                 countEven++;
-            }
-            if (array[i] % 2 != 0) {
+            } else {
                 countOdd++;
             }
             sumArray += array[i];
