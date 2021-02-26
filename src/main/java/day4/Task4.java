@@ -18,7 +18,9 @@ public class Task4 {
         }
 
         for (int i = 0; i < array.length - 2; i++) {
-            sum += array[i] + array[i + 1] + array[i + 2];
+            for (int j = i; j < i + 3; j++) {
+                sum += array[j];
+            }
             if (sum > sumMax){
                 sumMax = sum;
                 index = i;
