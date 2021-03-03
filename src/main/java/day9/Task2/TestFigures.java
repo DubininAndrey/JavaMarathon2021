@@ -31,7 +31,7 @@ public class TestFigures {
         double sum = 0;
         for (Figure figure : figures) {
             if (figure.getColor().equals("Red")) {
-                sum += figures.length;
+                sum += figure.area();
             }
         } return sum;
     }
