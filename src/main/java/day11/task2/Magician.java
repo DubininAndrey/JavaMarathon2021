@@ -1,12 +1,9 @@
 package day11.task2;
 
-import day11.task2.Interfaces.MagicAttack;
-import day11.task2.Interfaces.PhysAttack;
-
 public class Magician extends Hero implements PhysAttack, MagicAttack {
+    private int magicAtt;
 
     public Magician() {
-        health = 100;
         physDef = 0.0;
         magicDef = 0.8;
         physAtt = 5;
@@ -22,23 +19,11 @@ public class Magician extends Hero implements PhysAttack, MagicAttack {
 
     @Override
     public void magicalAttack(Hero hero) {
-        if (hero.getHealth() == 0) {
-            return;
-        }
-        hero.setHealth((int) (hero.getHealth() - (magicAtt * (1 - hero.getMagicDef()))));
-        if (hero.getHealth() < 0) {
-            hero.setHealth(0);
-        }
-    }
-
-    @Override
-    public void physicalAttack(Hero hero) {
-        if (hero.getHealth() == 0) {
-            return;
-        }
-        hero.setHealth((int) (hero.getHealth() - (physAtt * (1 - hero.getPhysDef()))));
-        if (hero.getHealth() < 0) {
-            hero.setHealth(0);
+        double powerMagicDamage = magicAtt * (1 - hero.magicDef);
+        if (hero.health - powerMagicDamage < MIN_HEALTH) {
+            hero.health = MIN_HEALTH;
+        } else {
+            hero.health -= powerMagicDamage;
         }
     }
 }

@@ -1,4 +1,4 @@
-package day11.task2.Interfaces;
+package day11.task2;
 
 import day11.task2.Hero;
 
