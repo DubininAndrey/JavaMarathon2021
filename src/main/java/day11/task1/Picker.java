@@ -3,16 +3,10 @@ package day11.task1;
 public class Picker implements Worker{
     private int salary = 0;
     private boolean isPayed = false;
-    public int countPicker = 0;
     private Warehouse warehouse;
 
     public Picker(Warehouse warehouse) {
         this.warehouse = warehouse;
-        countPicker++;
-    }
-
-    public int getCountPicker() {
-        return countPicker;
     }
 
     public int getSalary() {
@@ -34,7 +28,7 @@ public class Picker implements Worker{
     @Override
     public void doWork() {
         salary += 80;
-        warehouse.countPickedOrders++;
+        warehouse.addCountPickedOrders();
     }
 
     @Override
