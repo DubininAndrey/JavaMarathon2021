@@ -5,7 +5,7 @@ import java.util.List;
 
 public class User {
     private String name;
-    private List<String> subscriptions;
+    private List<User> subscriptions;
 
     public User(String name) {
         this.name = name;
@@ -16,20 +16,20 @@ public class User {
         return name;
     }
 
-    public List<String> getSubscriptions() {
+    public List<User> getSubscriptions() {
         return subscriptions;
     }
 
     public void subscribe(User user) {
-        subscriptions.add(user.getName());
+        subscriptions.add(user);
     }
 
     public boolean isSubscribed(User user) {
-        return subscriptions.contains(user.getName());
+        return subscriptions.contains(user);
     }
 
     public boolean isFriend(User user) {
-        return (isSubscribed(user) && user.getSubscriptions().contains(this.name));
+        return (isSubscribed(user) && user.getSubscriptions().contains(this));
     }
 
     public void sendMessage(User user, String text) {
